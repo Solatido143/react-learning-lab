@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import FormInput from '../components/FormInput'
 
 export default function SubmissionForm() {
+    let navigate = useNavigate();
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -13,16 +15,11 @@ export default function SubmissionForm() {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
 
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value
-        }))
+        setFormData((prev) => ({ ...prev, [name]: value}))
     }
 
     const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(formData);
-
         setFormData({
             firstName: '',
             lastName: '',
@@ -30,6 +27,9 @@ export default function SubmissionForm() {
             phone: '',
             gender: '',
         })
+        alert('sign up successful');
+
+        navigate("/");
     };
 
     const handleReset = () => {
