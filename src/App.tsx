@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/sub-form" element={<SubmissionForm/>} />
+      <Route path="/submission-form" element={<SubmissionForm/>} />
     </Routes>
   )
 }
