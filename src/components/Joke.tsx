@@ -11,13 +11,16 @@ export default function Joke() {
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 5000);
 
+        if (loading) return;
+
+        setLoading(true);
+
         try {
-            setLoading(true);
             const response = await fetch(apiURL, {
                 signal: controller.signal
             });
             const data = await response.json();
-            setJoke(data.joke || `${data.setup} ... ${data.delivery}`);
+            setJoke(data.joke || `${data.setup} ...  ${data.delivery}`);
         }
         catch (error: any) {
             if (error.name === "AbortError") {
@@ -35,11 +38,11 @@ export default function Joke() {
     return (
         <div className="flex flex-col items-center justify-center">
 
-            <Button callApi={fetchJoke}>
+            <Button callApi={fetchJoke} disabled={loading}>
                 Click to generate a joke
             </Button>
 
-            <div className="mt-4 min-h-10 w-75 text-center">
+            <div className="mt-4 min-h-10 w-100 text-center">
                 {loading ? (<div className="animate-pulse bg-gray-300 h-6 w-full rounded" />) : (<p>{joke}</p>)}
             </div>
         </div>
