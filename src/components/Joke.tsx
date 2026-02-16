@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import Button from "./DefaultButton";
+import Button from "./JokeButton";
 
 export default function Joke() {
     const apiURL = 'https://v2.jokeapi.dev/joke/Any';
@@ -52,8 +52,8 @@ export default function Joke() {
             <div className="mt-4 min-h-10 w-100">
                 {loading ? (
                     <div className="space-y-2">
-                        <div className="animate-pulse bg-gray-300 h-4 w-3/4 rounded" />
-                        <div className="animate-pulse bg-gray-300 h-4 w-1/2 rounded" />
+                        <div className="animate-pulse bg-gray-300 h-6 w-full rounded" />
+                        <div className="animate-pulse bg-gray-300 h-6 w-3/4 rounded" />
                     </div>
                 ) : (<p>{joke}</p>)}
             </div>
