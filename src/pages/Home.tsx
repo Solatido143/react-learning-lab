@@ -9,6 +9,9 @@ export default function Home() {
             <div>
                 <Link to="/joke-generator">Go to Joke Generator</Link>
             </div>
+            <div>
+                <Link to="/password-validator">Go to Password Validator</Link>
+            </div>
         </>
     )
 }
