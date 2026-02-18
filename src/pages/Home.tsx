@@ -12,6 +12,9 @@ export default function Home() {
             <div>
                 <Link to="/password-validator">Go to Password Validator</Link>
             </div>
+            <div>
+                <Link to="/poker">Go to Poker</Link>
+            </div>
         </>
     )
 }
